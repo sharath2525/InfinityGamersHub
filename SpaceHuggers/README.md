@@ -1,16 +1,3 @@
-![Space Huggers - A JS13k Game by Frank Force](/screenshot.png)
-
-The empire is spreading like a plague across the galaxy and building outposts on remote planets.
-You are an elite rebel soldier tasked with wiping out those bases.
-Explore strange planets using your tools of destruction and eliminate the invaders!
-You have only 10 clones left, 3 more will be replenished after each mission.
-Good luck, have fun, and give space a hug for me.
-
-## This game is only for learning purposes and not intended to be redistributed!
-
-# [PLAY SPACE HUGGERS!](https://www.newgrounds.com/portal/view/819609)
-# [OFFICIAL JS13K BUILD](https://js13kgames.com/entries/space-huggers)
-# [VIDEO DEMO](https://www.youtube.com/watch?v=6VXrnk18Z4s)
 
 # How To Play
 - Use WASD or D-Pad - Move, jump, and climb
@@ -78,14 +65,6 @@ Good luck, have fun, and give space a hug for me.
 - Rock (Color Varies) - Heavy and very hard to destroy, can't burn, can crush enemies
 - Lava Rock (Glowing Red & Orange) - Anything that touches it is lit on fire
 
-# Tools Used
-- [Roadroller](https://github.com/lifthrasiir/roadroller)
-- [Google Closure Compiler](https://github.com/google/closure-compiler)
-- [UglifyJS](https://github.com/mishoo/UglifyJS)
-- [Imagemin](https://github.com/imagemin/imagemin)
-- [Efficient Compression Tool](https://github.com/fhanau/Efficient-Compression-Tool)
-- [Advzip](https://www.npmjs.com/package/advzip-bin)
-- [ZzFX](https://github.com/KilledByAPixel/ZzFX)
 
 # How to build the 13k Zip
 - Run engine\build\setupBuild.bat to install the necessary tools via npm
