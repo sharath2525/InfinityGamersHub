@@ -2,6 +2,9 @@ var svg = document.querySelector("svg");
 var cursor = svg.createSVGPoint();
 var arrows = document.querySelector(".arrows");
 var randomAngle = 0;
+var arrowCount = 0;
+var maxArrows = 5;
+var score = 0;
 
 // center of target
 var target = {
@@ -27,23 +30,21 @@ aim({
 	clientY: 300
 });
 
-
-
 // set up start drag event
 window.addEventListener("mousedown", draw);
 
 function draw(e) {
-	// pull back arrow
-	randomAngle = (Math.random() * Math.PI * 0.03) - 0.015;
-	TweenMax.to(".arrow-angle use", 0.3, {
-		opacity: 1
-	});
-	window.addEventListener("mousemove", aim);
-	window.addEventListener("mouseup", loose);
-	aim(e);
+	if (arrowCount < maxArrows) {
+		// pull back arrow
+		randomAngle = (Math.random() * Math.PI * 0.03) - 0.015;
+		TweenMax.to(".arrow-angle use", 0.3, {
+			opacity: 1
+		});
+		window.addEventListener("mousemove", aim);
+		window.addEventListener("mouseup", loose);
+		aim(e);
+	}
 }
-
-
 
 function aim(e) {
 	// get mouse position in relation to svg position and scale
@@ -89,7 +90,6 @@ function aim(e) {
 		},
 			autoAlpha: distance/60
 	});
-
 }
 
 function loose() {
@@ -134,6 +134,10 @@ function loose() {
 	TweenMax.set(".arrow-angle use", {
 		opacity: 0
 	});
+	arrowCount++;
+	if (arrowCount >= maxArrows) {
+		setTimeout(resetGame, 2000);
+	}
 }
 
 function hitTest(tween) {
@@ -156,16 +160,19 @@ function hitTest(tween) {
 		var distance = Math.sqrt((dx * dx) + (dy * dy));
 		var selector = ".hit";
 		if (distance < 7) {
-			selector = ".bullseye"
+			selector = ".bullseye";
+			score += 5;
+		} else {
+			score += 2;
 		}
 		showMessage(selector);
 	}
-
 }
 
 function onMiss() {
-	// Damn!
+	// Missed the target
 	showMessage(".miss");
+	showMessage(".zero");
 }
 
 function showMessage(selector) {
@@ -191,7 +198,14 @@ function showMessage(selector) {
 	}, .03);
 }
 
-
+function resetGame() {
+	alert("Game over! Your score: " + score);
+	arrowCount = 0;
+	score = 0;
+	while (arrows.firstChild) {
+		arrows.removeChild(arrows.firstChild);
+	}
+}
 
 function getMouseSVG(e) {
 	// normalize mouse position within svg coordinates
