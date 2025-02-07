@@ -193,12 +193,12 @@ engineInit(
     if (p > 0)
     {
         //mainContext.fillStyle = (new Color).setHSLA(time/3,1,.5,p).rgba();
-        mainContext.font = '1.5in impact';
+        mainContext.font = '0.6in impact';
         mainContext.fillText('SPACE HUGGERS', mainCanvas.width/2, 140);
     }
 
     mainContext.font = '.5in impact';
-    p > 0 && mainContext.fillText('A JS13K Game by Frank Force',mainCanvas.width/2, 210);
+    p > 0 && mainContext.fillText('Infinity Gamers Hub',mainCanvas.width/2, 210);
 
     // check if any enemies left
     let enemiesCount = 0;
